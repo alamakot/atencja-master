@@ -1,0 +1,29 @@
+<h1>Lista użytkowników</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nazwa</th>
+      <th>Email</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.name %></td>
+        <td><%= user.email %></td>
+        <td><%= link_to 'Pokaż', user %></td>
+        <td><%= link_to 'Edytuj', edit_user_path(user) %></td>
+        <td><%= link_to 'Usuń', user, method: :delete, data: { confirm: 'Na pewno?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Nowy użytkownik', new_user_path %>
